@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_9/ui/widgets/profile_summary_card.dart';
+import 'package:flutter_application_9/ui/widgets/summary_card.dart';
 
 class NewTasksScreen extends StatefulWidget {
   const NewTasksScreen({super.key});
@@ -14,24 +16,29 @@ class _NewTasksScreenState extends State<NewTasksScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            ListTile(
-              leading: CircleAvatar(),
-              title: Text(
-                'Imdadul Haque Ohi',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w700,
-                ),
+            ProfileSummaryCard(),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  SummaryCard(
+                    count: '92',
+                    title: 'New',
+                  ),
+                  SummaryCard(
+                    count: '92',
+                    title: 'In Progress',
+                  ),
+                  SummaryCard(
+                    count: '92',
+                    title: 'Completed',
+                  ),
+                  SummaryCard(
+                    count: '92',
+                    title: 'Cancelled',
+                  ),
+                ],
               ),
-              subtitle: Text(
-                'imdadul1@gmail.com',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-              trailing: Icon(Icons.arrow_forward),
-              tileColor: Colors.red,
             ),
           ],
         ),
@@ -39,3 +46,4 @@ class _NewTasksScreenState extends State<NewTasksScreen> {
     );
   }
 }
+
