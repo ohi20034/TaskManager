@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_9/ui/screens/add_new_task_screen.dart';
 import 'package:flutter_application_9/ui/widgets/profile_summary_card.dart';
 import 'package:flutter_application_9/ui/widgets/summary_card.dart';
 import 'package:flutter_application_9/ui/widgets/task_item_card.dart';
@@ -14,6 +15,20 @@ class _NewTasksScreenState extends State<NewTasksScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const AddNewTaskScreen(),
+            ),
+          );
+        },
+        child: const Icon(
+          Icons.add_task,
+          color: Color.fromARGB(255, 0, 0, 0),
+        ),
+      ),
       body: SafeArea(
         child: Column(
           children: [

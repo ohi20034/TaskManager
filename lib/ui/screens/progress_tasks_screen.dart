@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_9/ui/widgets/profile_summary_card.dart';
+import 'package:flutter_application_9/ui/widgets/task_item_card.dart';
 
 class ProgressTasksScreen extends StatefulWidget {
   const ProgressTasksScreen({super.key});
@@ -10,9 +12,21 @@ class ProgressTasksScreen extends StatefulWidget {
 class _ProgressTasksScreenState extends State<ProgressTasksScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('Progress'),
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
+          children: [
+            const ProfileSummaryCard(),
+            Expanded(
+              child: ListView.builder(
+                itemCount: 5,
+                itemBuilder: ((context, index) {
+                  return const TaskItemCard();
+                }),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

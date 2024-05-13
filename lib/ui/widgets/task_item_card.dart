@@ -31,7 +31,7 @@ class TaskItemCard extends StatelessWidget {
                     'New',
                     style: TextStyle(color: Colors.white),
                   ),
-                  backgroundColor: Colors.blue,
+                  backgroundColor: Colors.red,
                 ),
                 Wrap(
                   children: [
