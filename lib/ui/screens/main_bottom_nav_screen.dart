@@ -4,14 +4,14 @@ import 'package:flutter_application_9/ui/screens/completed_tasks_screen.dart';
 import 'package:flutter_application_9/ui/screens/new_tasks_screen.dart';
 import 'package:flutter_application_9/ui/screens/progress_tasks_screen.dart';
 
-class MainButtomNavScreen extends StatefulWidget {
-  const MainButtomNavScreen({super.key});
+class MainBottomNavScreen extends StatefulWidget {
+  const MainBottomNavScreen({super.key});
 
   @override
-  State<MainButtomNavScreen> createState() => _MainButtomNavScreenState();
+  State<MainBottomNavScreen> createState() => _MainBottomNavScreenState();
 }
 
-class _MainButtomNavScreenState extends State<MainButtomNavScreen> {
+class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
   final List<Widget> _screens = const [
     NewTasksScreen(),
     ProgressTasksScreen(),
@@ -27,19 +27,22 @@ class _MainButtomNavScreenState extends State<MainButtomNavScreen> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: (index) {
-          _selectedIndex = index;
-          setState(() {});
+          setState(() {
+            _selectedIndex = index;
+          });
         },
         selectedItemColor: Colors.red,
-        unselectedItemColor: const Color.fromARGB(255, 67, 67, 67),
+        unselectedItemColor: Colors.grey,
         showUnselectedLabels: true,
         items: const [
           BottomNavigationBarItem(
-              icon: Icon(Icons.add_circle_outline_sharp), label: 'New'),
+              icon: Icon(Icons.note_alt_outlined), label: 'New'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.change_circle_outlined), label: 'In Progress'),
-          BottomNavigationBarItem(icon: Icon(Icons.done), label: 'Completed'),
-          BottomNavigationBarItem(icon: Icon(Icons.close), label: 'Cancelled'),
+              icon: Icon(Icons.restart_alt_rounded), label: 'In-progress'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.download_done_rounded), label: 'Completed'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.cancel_rounded), label: 'Cancelled'),
         ],
       ),
     );

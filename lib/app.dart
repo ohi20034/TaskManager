@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_9/ui/screens/main_bottom_nav_screen.dart';
+
 import 'package:flutter_application_9/ui/screens/splash_screen.dart';
 
 class TaskManagerApp extends StatelessWidget {
@@ -7,7 +9,7 @@ class TaskManagerApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const SplashScreen(),
+      home: const MainBottomNavScreen()/* const SplashScreen() */,
       theme: ThemeData(
         inputDecorationTheme: const InputDecorationTheme(
           fillColor: Colors.white,
@@ -23,7 +25,7 @@ class TaskManagerApp extends StatelessWidget {
           ),
         ),
         primaryColor: Colors.red,
-        primarySwatch: Colors.red,
+        primarySwatch: Colors.red, 
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             padding: const EdgeInsets.symmetric(vertical: 10),

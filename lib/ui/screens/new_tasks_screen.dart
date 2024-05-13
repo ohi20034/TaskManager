@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_9/ui/widgets/profile_summary_card.dart';
 import 'package:flutter_application_9/ui/widgets/summary_card.dart';
+import 'package:flutter_application_9/ui/widgets/task_item_card.dart';
 
 class NewTasksScreen extends StatefulWidget {
   const NewTasksScreen({super.key});
@@ -12,32 +13,43 @@ class NewTasksScreen extends StatefulWidget {
 class _NewTasksScreenState extends State<NewTasksScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SafeArea(
         child: Column(
           children: [
-            ProfileSummaryCard(),
-            SingleChildScrollView(
+            const ProfileSummaryCard(),
+            const SingleChildScrollView(
               scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  SummaryCard(
-                    count: '92',
-                    title: 'New',
-                  ),
-                  SummaryCard(
-                    count: '92',
-                    title: 'In Progress',
-                  ),
-                  SummaryCard(
-                    count: '92',
-                    title: 'Completed',
-                  ),
-                  SummaryCard(
-                    count: '92',
-                    title: 'Cancelled',
-                  ),
-                ],
+              child: Padding(
+                padding: EdgeInsets.only(left: 16, right: 16),
+                child: Row(
+                  children: [
+                    SummaryCard(
+                      count: '91',
+                      title: 'New',
+                    ),
+                    SummaryCard(
+                      count: '91',
+                      title: 'New',
+                    ),
+                    SummaryCard(
+                      count: '91',
+                      title: 'New',
+                    ),
+                    SummaryCard(
+                      count: '91',
+                      title: 'New',
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: 5,
+                itemBuilder: ((context, index) {
+                  return const TaskItemCard();
+                }),
               ),
             ),
           ],
@@ -46,4 +58,3 @@ class _NewTasksScreenState extends State<NewTasksScreen> {
     );
   }
 }
-

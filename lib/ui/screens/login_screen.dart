@@ -5,7 +5,8 @@ import 'package:flutter_application_9/data/network_caller/network_response.dart'
 import 'package:flutter_application_9/data/utility/urls.dart';
 import 'package:flutter_application_9/ui/controllers/auth_controller.dart';
 import 'package:flutter_application_9/ui/screens/forgot_password_screen.dart';
-import 'package:flutter_application_9/ui/screens/main_buttom_nav_screen.dart';
+import 'package:flutter_application_9/ui/screens/main_bottom_nav_screen.dart';
+
 import 'package:flutter_application_9/ui/screens/sign_up_screen.dart';
 import 'package:flutter_application_9/ui/widgets/bodyBackground.dart';
 import 'package:flutter_application_9/ui/widgets/snack_message.dart';
@@ -184,7 +185,7 @@ class _LoginScreenState extends State<LoginScreen> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const MainButtomNavScreen(),
+              builder: (context) => const MainBottomNavScreen(),
             ),
           );
         }
