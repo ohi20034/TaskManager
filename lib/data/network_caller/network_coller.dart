@@ -21,6 +21,7 @@ class NetworkCaller {
       log(body.toString());
       log(response.statusCode.toString());
       log(response.body.toString());
+      log(AuthControler.token.toString());
       if (response.statusCode == 200) {
         return NetworkResponse(
           isSuccess: true,
@@ -50,6 +51,42 @@ class NetworkCaller {
       );
     }
   }
+
+  Future<NetworkResponse> getRequest(String url) async {
+    try {
+      final Response response = await get(Uri.parse(url), headers: {
+        'content-type': 'Application/json',
+        'token': AuthControler.token.toString(),
+      });
+      if (response.statusCode == 200) {
+        return NetworkResponse(
+          isSuccess: true,
+          jsonResponse: jsonDecode(response.body),
+          statusCode: 200,
+        );
+      } else if (response.statusCode == 401) {
+        backToLogin();
+
+        return NetworkResponse(
+          isSuccess: false,
+          statusCode: response.statusCode,
+          jsonResponse: jsonDecode(response.body),
+        );
+      } else {
+        return NetworkResponse(
+          isSuccess: false,
+          statusCode: response.statusCode,
+          jsonResponse: jsonDecode(response.body),
+        );
+      }
+    } catch (e) {
+      return NetworkResponse(
+        isSuccess: false,
+        errorMessage: e.toString(),
+      );
+    }
+  }
+  
 
   void backToLogin() async {
     await AuthControler.clearAuthData();

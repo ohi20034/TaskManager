@@ -13,7 +13,6 @@ class _CompletedTasksScreenState extends State<CompletedTasksScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body: SafeArea(
         child: Column(
           children: [
@@ -22,7 +21,7 @@ class _CompletedTasksScreenState extends State<CompletedTasksScreen> {
               child: ListView.builder(
                 itemCount: 5,
                 itemBuilder: ((context, index) {
-                  return const TaskItemCard();
+                  //return const TaskItemCard();
                 }),
               ),
             ),

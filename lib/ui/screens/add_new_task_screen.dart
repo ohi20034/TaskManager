@@ -93,6 +93,7 @@ class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
                                   Icons.arrow_circle_right_outlined,
                                   color: Colors.white,
                                 ),
+                                
                               ),
                             ),
                           ),
