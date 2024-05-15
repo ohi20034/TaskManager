@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_9/ui/controllers/auth_controller.dart';
 import 'package:flutter_application_9/ui/screens/login_screen.dart';
+import 'package:flutter_application_9/ui/screens/main_bottom_nav_screen.dart';
 import 'package:flutter_application_9/ui/widgets/bodyBackground.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -25,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
           context,
           MaterialPageRoute(
             builder: (context) =>
-                isLoggedIn ? const LoginScreen() : const LoginScreen(),
+                isLoggedIn ? const MainBottomNavScreen() : const LoginScreen(),
           ),
           (route) => false);
     });
