@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class AuthControler {
   static String? token;
   static UserModel? user;
+  
   static Future<void> savedUserInformation(String t, UserModel model) async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     await sharedPreferences.setString('token', t);
@@ -23,7 +24,7 @@ class AuthControler {
 
   static Future<bool> checkAuthState() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    String? token = sharedPreferences.getString('token');
+    token = sharedPreferences.getString('token');
 
     if (token != null) {
       await initilizaUserCache();

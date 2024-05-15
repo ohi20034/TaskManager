@@ -39,9 +39,9 @@ class _ProfileSummaryCardState extends State<ProfileSummaryCard> {
           fontWeight: FontWeight.w700,
         ),
       ),
-      subtitle: const Text(
-        'imdadul1@gmail.com',
-        style: TextStyle(
+      subtitle: Text(
+        AuthControler.user?.email ?? '',
+        style: const TextStyle(
           color: Colors.white,
           fontWeight: FontWeight.w700,
         ),
