@@ -47,7 +47,7 @@ class _NewTasksScreenState extends State<NewTasksScreen> {
       setState(() {});
     }
     final NetworkResponse response =
-        await NetworkCaller().getRequest(Urls.getNewTask);
+        await NetworkCaller().getRequest(Urls.getTaskStatusCount);
 
     if (response.isSuccess) {
       taskSumCountListModel =
@@ -87,34 +87,24 @@ class _NewTasksScreenState extends State<NewTasksScreen> {
         child: Column(
           children: [
             const ProfileSummaryCard(),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 16, right: 16),
-                child: Row(
-                  children: [
-                    Visibility(
-                      visible: getTaskCountSumInProgress == false,
-                      replacement: const LinearProgressIndicator(),
-                      child: SizedBox(
-                        height: 120,
-                        child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: taskSumCountListModel.data?.length ?? 0,
-                          itemBuilder: (context, index) {
-                            TaskCount taskCount =
-                                taskSumCountListModel.data![index];
-                            return FittedBox(
-                              child: SummaryCard(
-                                count: taskCount.sum.toString(),
-                                title: taskCount.sId ?? '',
-                              ),
-                            );
-                          },
-                        ),
+            Visibility(
+              visible: getTaskCountSumInProgress == false &&
+                  (taskSumCountListModel.data?.isNotEmpty ?? false),
+              replacement: const LinearProgressIndicator(),
+              child: SizedBox(
+                height: 120,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: taskSumCountListModel.data?.length ?? 0,
+                  itemBuilder: (context, index) {
+                    TaskCount taskCount = taskSumCountListModel.data![index];
+                    return FittedBox(
+                      child: SummaryCard(
+                        count: taskCount.sum.toString(),
+                        title: taskCount.sId ?? '',
                       ),
-                    )
-                  ],
+                    );
+                  },
                 ),
               ),
             ),
@@ -124,13 +114,25 @@ class _NewTasksScreenState extends State<NewTasksScreen> {
                 replacement: const Center(
                   child: CircularProgressIndicator(),
                 ),
-                child: ListView.builder(
-                  itemCount: taskListModel.data?.length ?? 0,
-                  itemBuilder: ((context, index) {
-                    return TaskItemCard(
-                      task: taskListModel.data![index],
-                    );
-                  }),
+                child: RefreshIndicator(
+                  onRefresh: getNewTaskList,
+                  child: ListView.builder(
+                    itemCount: taskListModel.data?.length ?? 0,
+                    itemBuilder: ((context, index) {
+                      return TaskItemCard(
+                        task: taskListModel.data![index],
+                        onStatusChagnel: () {
+                          getNewTaskList();
+                        },
+                        showProgress: (inProgress) {
+                          getNewTaskInProgress = inProgress;
+                          if (mounted) {
+                            setState(() {});
+                          }
+                        },
+                      );
+                    }),
+                  ),
                 ),
               ),
             ),

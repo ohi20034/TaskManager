@@ -8,7 +8,7 @@ class SummaryCard extends StatelessWidget {
   });
 
   final String count, title;
-
+  
   @override
   Widget build(BuildContext context) {
     return Card(
