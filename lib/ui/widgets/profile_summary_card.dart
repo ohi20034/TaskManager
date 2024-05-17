@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_9/ui/controllers/auth_controller.dart';
 import 'package:flutter_application_9/ui/screens/edit_profile_screen.dart';
@@ -18,6 +19,7 @@ class ProfileSummaryCard extends StatefulWidget {
 class _ProfileSummaryCardState extends State<ProfileSummaryCard> {
   @override
   Widget build(BuildContext context) {
+    
     return ListTile(
       onTap: () {
         if (widget.enableOnTap) {
@@ -30,7 +32,7 @@ class _ProfileSummaryCardState extends State<ProfileSummaryCard> {
         }
       },
       leading: const CircleAvatar(
-        child: Icon(Icons.person),
+        child:  Icon(Icons.person),
       ),
       title: Text(
         fullName,

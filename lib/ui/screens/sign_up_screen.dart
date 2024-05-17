@@ -193,6 +193,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         "email": _emailTEController.text.trim(),
         "mobile": _mobileTEController.text.trim(),
         "password": _passwordTEController.text,
+        "photo":null,
       });
       _signUpInProgress = false;
       if (mounted) {

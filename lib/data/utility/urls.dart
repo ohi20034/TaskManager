@@ -5,14 +5,17 @@ class Urls {
   static const String registration = '$_baseUrl/registration';
   static const String login = '$_baseUrl/login';
   static const String createNewTaks = '$_baseUrl/createTask';
-  static  String getNewTask = '$_baseUrl/listTaskByStatus/${TaskStatus.New.name}';
-  static  String getNewProgress = '$_baseUrl/listTaskByStatus/${TaskStatus.Progress.name}';
-  static  String getNewCompleted = '$_baseUrl/listTaskByStatus/${TaskStatus.Completed.name}';
-  static  String getNewCancel = '$_baseUrl/listTaskByStatus/${TaskStatus.Cancel.name}';
-
-
+  static String getNewTask =
+      '$_baseUrl/listTaskByStatus/${TaskStatus.New.name}';
+  static String getNewProgress =
+      '$_baseUrl/listTaskByStatus/${TaskStatus.Progress.name}';
+  static String getNewCompleted =
+      '$_baseUrl/listTaskByStatus/${TaskStatus.Completed.name}';
+  static String getNewCancel =
+      '$_baseUrl/listTaskByStatus/${TaskStatus.Cancel.name}';
 
   static const String getTaskStatusCount = '$_baseUrl/taskStatusCount';
   static String updateTaskStatus(String taskID, String status) =>
       '$_baseUrl/updateTaskStatus/$taskID/$status';
+  static const String updateProfile = '$_baseUrl/profileUpdate';
 }
